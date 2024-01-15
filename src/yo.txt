@@ -1,0 +1,5 @@
+1. Add new readEasy.Author
+2. Add new readEasy.Publisher
+3. Add new readEasy.Book
+4. Add new readEasy.BookMark
+5. Show Reports
