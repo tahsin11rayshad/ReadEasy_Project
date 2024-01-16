@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class BookMark {
-    Book book;
-    int page;
+    public Book book;
+    public int page;
 
     public BookMark(Book book, int page) {
         this.book = book;

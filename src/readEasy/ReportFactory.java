@@ -53,8 +53,8 @@ public class ReportFactory {
                 return new report.genreReport();
             case 4:
                 return new report.allBookReport();
-//            case 5:
-//                return new report.allBookMarkReport();
+            case 5:
+                return new report.allBookMarkReport();
             case 6:
                 return new report.allBookByAuthorReport();
             case 7:

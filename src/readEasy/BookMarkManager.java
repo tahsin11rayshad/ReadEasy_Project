@@ -21,7 +21,7 @@ public class BookMarkManager {
         return Instance;
     }
 
-    List<BookMark> bookMarks;
+    public List<BookMark> bookMarks;
 
     private void loadBookMarks() throws IOException {
         check();
