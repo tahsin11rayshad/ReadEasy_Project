@@ -3,6 +3,11 @@ package readEasy;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Represents a book in the library
+ * This is an abstract class and cannot be instantiated
+ * @author Tahsin Islam
+ */
 public abstract class Book {
     public String Title;
     public Author Author;
@@ -10,6 +15,14 @@ public abstract class Book {
     public String ISBN;
     public String Genre;
 
+    /**
+     * Constructor for Book class
+     * @param title Title of the book
+     * @param author Author of the book
+     * @param publisher Publisher of the book
+     * @param isbn ISBN of the book
+     * @param genre Genre of the book
+     */
     public Book(String title, Author author, Publisher publisher, String isbn, String genre) {
         this.Title = title;
         this.Author = author;
@@ -18,12 +31,24 @@ public abstract class Book {
         this.Genre = genre;
     }
 
+    /**
+     * Returns a string representation of the book
+     * @return String representation of the book
+     */
     public String toString() {
         return this.Title + " (" + this.Author + ", " + this.Publisher + ", " + this.ISBN + ")";
     }
 
+    /**
+     * Returns the genre of the book
+     * @return Genre of the book
+     */
     public abstract String getGenre();
 
+    /**
+     * Adds a new book to the list of books
+     * @throws IOException
+     */
     public static void addBook() throws IOException, IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Add new Book");
