@@ -24,12 +24,17 @@ public class BookMark {
                 break;
             }
         }
+        boolean flag = false;
         BookMark bmm = null;
         for(BookMark bm : BookMarkManager.getInstance().bookMarks){
             if(bm.book.Title.equals(title)){
                 bmm = bm;
+                flag = true;
                 break;
             }
+        }
+        if(!flag){
+            throw new IOException("BookMark not found");
         }
         BookMarkManager.getInstance().removeBookMark(bmm);
         System.out.println("BookMark "+ bmm.book.Title + " ["+ bmm.page +"] " +"removed successfully");

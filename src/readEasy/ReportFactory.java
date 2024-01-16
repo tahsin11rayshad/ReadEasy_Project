@@ -61,10 +61,10 @@ public class ReportFactory {
                 return new report.allBookByPublisherReport();
             case 8:
                 return new report.allBookByGenreReport();
-//            case 9:
-//                return new report.allBookByAuthorAndGenreReport();
-//            case 10:
-//                return new report.allBookByPublisherAndGenreReport();
+            case 9:
+                return new report.allBookByAuthorAndGenreReport();
+            case 10:
+                return new report.allBookByPublisherAndGenreReport();
             default:
                 return null;
         }

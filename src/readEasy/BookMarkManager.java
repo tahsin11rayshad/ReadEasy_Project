@@ -55,7 +55,7 @@ public class BookMarkManager {
     }
 
     private void saveBookMark(Book book, int page) throws IOException {
-        BookMarkManager.getInstance().check();
+        check();
         Path filePath = Paths.get("C:\\readeasy\\mark.txt");
         String line = "\n" + book.Title + "," + page;
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
@@ -63,14 +63,17 @@ public class BookMarkManager {
 
     public void addBookMark(Book book, int page) throws IOException {
         BookMark bm = new BookMark(book, page);
-        if(bookMarks.contains(bm)){
-            removeBookMark(bm);
+        for(BookMark b : bookMarks){
+            if(b.book.Title.equals(book.Title)){
+                removeBookMark(b);
+            }
         }
         bookMarks.add(bm);
         saveBookMark(book, page);
     }
 
     public void removeBookMark(BookMark bm) throws IOException {
+
         bookMarks.remove(bm);
         saveBookMarks();
     }

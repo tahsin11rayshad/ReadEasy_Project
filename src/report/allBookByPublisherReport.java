@@ -11,22 +11,21 @@ import java.util.Map;
 public class allBookByPublisherReport implements iReport{
     public void printReport() throws IOException {
         System.out.println("All Books By Publisher Report");
-        List<String> distinctPublishers = new ArrayList<String>();
-        int i=0;
+        Map<String, List<Book>> booksByPublisher = new HashMap<String, List<Book>>();
         for (Book b : BookShelf.getInstance().books) {
-            if (!distinctPublishers.contains(b.Publisher.Name)) {
-                distinctPublishers.add(b.Publisher.Name);
-                i++;
+            if (!booksByPublisher.containsKey(b.Publisher.Name)) {
+                booksByPublisher.put(b.Publisher.Name, new ArrayList<Book>());
             }
+            booksByPublisher.get(b.Publisher.Name).add(b);
         }
-        int j=1;
-        for(String s : distinctPublishers){
-            for(Book b : BookShelf.getInstance().books){
-                if(b.Publisher.Name.equals(s)){
-                    String Line = j + ". " + b.Publisher.Name + "-" + b.Title + "-" + " (" + b.Author.Name + ")" + " (" + b.ISBN + ")" + " (" + b.Genre + ")";
-                    System.out.println(Line);
-                    j++;
-                }
+
+        int i = 1;
+        for (Map.Entry<String, List<Book>> entry : booksByPublisher.entrySet()) {
+            System.out.println("Publisher: " + entry.getKey());
+            for (Book b : entry.getValue()) {
+                String line = i + ". " + b.Title + " (" + b.Author.Name + ")" + " (" + b.ISBN + ")" + " (" + b.Genre + ")";
+                System.out.println("  " + line);
+                i++;
             }
         }
     }
