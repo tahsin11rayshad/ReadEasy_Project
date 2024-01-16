@@ -6,7 +6,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+/**
+ * A class that prints a report of all the books in the bookshelf by publisher and genre.
+ * @Author Tahsin Islam
+ */
 public class allBookByPublisherAndGenreReport implements iReport {
+
+    /**
+     * Prints a report of all the books in the bookshelf by publisher and genre.
+     * @throws IOException
+     */
     public void printReport() throws IOException {
         System.out.println("Publisher and Genre Report");
         Map<String, Map<String, List<Book>>> booksByPublisherAndGenre = new HashMap<String, Map<String, List<Book>>>();

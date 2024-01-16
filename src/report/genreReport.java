@@ -7,7 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A class that prints a report of all the books genre in the bookshelf.
+ * @Author Tahsin Islam
+ */
 public class genreReport implements iReport{
+
+    /**
+     * Prints a report of all the books genre in the bookshelf.
+     * @throws IOException
+     */
     public void printReport() throws IOException {
         System.out.println("Genre Report");
         List<String> genres = new ArrayList<String>();

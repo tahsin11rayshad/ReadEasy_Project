@@ -8,7 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A class that prints a report of all the books in the bookshelf by author.
+ * @Author Tahsin Islam
+ */
 public class allBookByAuthorReport implements iReport{
+
+    /**
+     * Prints a report of all the books in the bookshelf by author.
+     * @throws IOException
+     */
     public void printReport() throws IOException {
         System.out.println("All Books By Author Report");
         Map<String, List<Book>> booksByAuthor = new HashMap<String, List<Book>>();
