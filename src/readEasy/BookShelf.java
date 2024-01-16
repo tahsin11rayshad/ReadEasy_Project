@@ -8,11 +8,24 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a bookshelf that contains books, authors and publishers
+ * Singleton class
+ * The bookshelf is loaded from the files
+ * The bookshelf is saved to the files
+ * The bookshelf is updated when a new book, author or publisher is added
+ * @author Tahsin Islam
+ */
 public class BookShelf {
     public List<Book> books;
     public List<Author> authors;
     public List<Publisher> publishers;
     private static BookShelf instance;
+
+    /**
+     * Constructor for the BookShelf class
+     * @throws IOException
+     */
     private BookShelf() throws IOException {
         books = new ArrayList<Book>();
         authors = new ArrayList<Author>();
@@ -22,6 +35,11 @@ public class BookShelf {
         loadBooks();
     }
 
+    /**
+     * Returns the instance of the BookShelf class
+     * @return Instance of the BookShelf class
+     * @throws IOException
+     */
     public static BookShelf getInstance() throws IOException {
         if (instance == null) {
             instance = new BookShelf();
@@ -36,6 +54,10 @@ public class BookShelf {
         checkAndCreateFiles();
     }
 
+    /**
+     * Loads the books from the file
+     * @throws IOException
+     */
     private void loadBooks() throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\book.txt");
@@ -66,6 +88,10 @@ public class BookShelf {
         }
     }
 
+    /**
+     * Loads the authors from the file
+     * @throws IOException
+     */
     private void loadAuthors() throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\auth.txt");
@@ -79,6 +105,10 @@ public class BookShelf {
         }
     }
 
+    /**
+     * Loads the publishers from the file
+     * @throws IOException
+     */
     private void loadPublishers() throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\pub.txt");
@@ -93,6 +123,10 @@ public class BookShelf {
         }
     }
 
+    /**
+     * Saves the books to the file
+     * @throws IOException
+     */
     private void saveBooks() throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\book.txt");
@@ -104,6 +138,10 @@ public class BookShelf {
         Files.write(filePath, lines);
     }
 
+    /**
+     * Saves the authors to the file
+     * @throws IOException
+     */
     private void appendBook(Book book) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\book.txt");
@@ -111,6 +149,10 @@ public class BookShelf {
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
+    /**
+     * Saves the authors to the file
+     * @throws IOException
+     */
     private void appendAuthor(Author author) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\auth.txt");
@@ -118,6 +160,10 @@ public class BookShelf {
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
+    /**
+     * Saves the publishers to the file
+     * @throws IOException
+     */
     private void appendPublisher(Publisher publisher) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\pub.txt");
@@ -125,22 +171,36 @@ public class BookShelf {
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
+    /**
+     * Saves the books to the file and updates the list of books
+     * @throws IOException
+     */
     public void addBook(Book book) throws IOException {
         books.add(book);
         appendBook(book);
     }
 
+    /**
+     * Saves the authors to the file and updates the list of authors
+     * @throws IOException
+     */
     public void addAuthor(Author author) throws IOException {
         authors.add(author);
         appendAuthor(author);
     }
 
+    /**
+     * Saves the publishers to the file and updates the list of publishers
+     * @throws IOException
+     */
     public void addPublisher(Publisher publisher) throws IOException {
         publishers.add(publisher);
         appendPublisher(publisher);
     }
 
-
+    /**
+     * Checks if the folder exists and creates it if it doesn't
+     */
     private static void checkAndCreateFolder() {
         String folderPath = "C:\\readeasy";
         boolean folderExists = Files.exists(Paths.get(folderPath));
@@ -154,6 +214,9 @@ public class BookShelf {
         }
     }
 
+    /**
+     * Checks if the files exist and creates them if they don't
+     */
     private static void checkAndCreateFiles() {
         String[] fileNames = {"book.txt", "pub.txt", "auth.txt"};
 

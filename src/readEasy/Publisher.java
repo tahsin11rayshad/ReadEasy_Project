@@ -3,22 +3,41 @@ package readEasy;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Represents a publisher of a book
+ * A publisher can be added to the bookshelf
+ * @author Tahsin Islam
+ */
 public class Publisher {
     public String Name;
     public String Address;
     public String Email;
 
+    /**
+     * Constructor for the Publisher class
+     * @param name Name of the publisher
+     * @param address Address of the publisher
+     * @param email Email of the publisher
+     */
     public Publisher(String name, String address, String email) {
         this.Name = name;
         this.Address = address;
         this.Email = email;
     }
 
+    /**
+     * Returns a string representation of the publisher
+     * @return String representation of the publisher
+     */
     public String toString() {
         return this.Name + " (" + this.Address + ", " + this.Email + ")";
     }
 
-    public static void addPublisher() throws IOException, IOException {
+    /**
+     * Adds a publisher to the bookshelf
+     * @throws IOException
+     */
+    public static void addPublisher() throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Add new Publisher");
         System.out.println("Name:");

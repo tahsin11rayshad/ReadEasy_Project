@@ -8,12 +8,28 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a manager for bookmarks
+ * Singleton class
+ * @author Tahsin Islam
+ */
 public class BookMarkManager {
     private static BookMarkManager Instance;
+
+    /**
+     * Constructor for the BookMarkManager class
+     * @throws IOException
+     */
     private BookMarkManager() throws IOException {
         bookMarks = new ArrayList<BookMark>();
         loadBookMarks();
     }
+
+    /**
+     * Returns the instance of the BookMarkManager class
+     * @return Instance of the BookMarkManager class
+     * @throws IOException
+     */
     public static BookMarkManager getInstance() throws IOException {
         if (Instance == null) {
             Instance = new BookMarkManager();
@@ -23,6 +39,11 @@ public class BookMarkManager {
 
     public List<BookMark> bookMarks;
 
+
+    /**
+     * Loads the bookmarks from the file
+     * @throws IOException
+     */
     private void loadBookMarks() throws IOException {
         check();
         Path filePath = Paths.get("C:\\readeasy\\mark.txt");
@@ -43,6 +64,11 @@ public class BookMarkManager {
         }
     }
 
+    /**
+     * Checks if the file exists
+     * If not, creates the file
+     * @throws IOException
+     */
     public void check() throws IOException {
         BookShelf b = BookShelf.getInstance();
         String folderPath = "C:\\readeasy";
@@ -54,6 +80,12 @@ public class BookMarkManager {
         }
     }
 
+    /**
+     * Saves the bookmark to the file
+     * @param book Book of the bookmark
+     * @param page Page of the bookmark
+     * @throws IOException
+     */
     private void saveBookMark(Book book, int page) throws IOException {
         check();
         Path filePath = Paths.get("C:\\readeasy\\mark.txt");
@@ -61,6 +93,12 @@ public class BookMarkManager {
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
+    /**
+     * Adds a new bookmark to the list of bookmarks and saves it to the file
+     * @param book Book of the bookmark
+     * @param page Page of the bookmark
+     * @throws IOException
+     */
     public void addBookMark(Book book, int page) throws IOException {
         BookMark bm = new BookMark(book, page);
         for(BookMark b : bookMarks){
@@ -72,12 +110,21 @@ public class BookMarkManager {
         saveBookMark(book, page);
     }
 
+    /**
+     * Removes a bookmark from the list of bookmarks and saves it to the file
+     * @param bm Bookmark to be removed
+     * @throws IOException
+     */
     public void removeBookMark(BookMark bm) throws IOException {
 
         bookMarks.remove(bm);
         saveBookMarks();
     }
 
+    /**
+     * Saves the bookmarks to the file
+     * @throws IOException
+     */
     private void saveBookMarks() throws IOException {
         Path filePath = Paths.get("C:\\readeasy\\mark.txt");
         Files.write(filePath, new byte[0]);

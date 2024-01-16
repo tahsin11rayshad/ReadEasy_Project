@@ -4,10 +4,24 @@ import report.iReport;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Represents a factory for reports
+ * Singleton class
+ * The factory creates and shows reports
+ * @author Tahsin Islam
+ */
 public class ReportFactory {
     private static ReportFactory instance;
+    /**
+     * Constructor for the ReportFactory class
+     */
     private ReportFactory() {
     }
+
+    /**
+     * Returns the instance of the ReportFactory class
+     * @return Instance of the ReportFactory class
+     */
     public static ReportFactory getInstance() {
         if (instance == null) {
             instance = new ReportFactory();
@@ -15,6 +29,10 @@ public class ReportFactory {
         return instance;
     }
 
+    /**
+     * Returns the type of the report
+     * @return Type of the report
+     */
     public int getType(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Choose report type: ___________________________");
@@ -37,12 +55,21 @@ public class ReportFactory {
         return type;
     }
 
+    /**
+     * Shows the report
+     * @throws IOException
+     */
     public void showReport() throws IOException {
         int type = getType();
         report.iReport report = getReport(type);
         report.printReport();
     }
 
+    /**
+     * Returns the report of the given type
+     * @param type Type of the report
+     * @return Report of the given type
+     */
     public report.iReport getReport(int type) {
         switch (type) {
             case 1:

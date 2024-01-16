@@ -3,6 +3,7 @@ package readEasy;
 /**
  * Represents a book factory that creates books of different genres
  * Singleton class
+ * @author Tahsin Islam
  */
 public class BookFactory {
     private static BookFactory Instance;

@@ -3,15 +3,30 @@ package readEasy;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Represents a bookmark of a book
+ * A bookmark is a pointer to a page of a book
+ * A bookmark can be added or removed from a book
+ * @author Tahsin Islam
+ */
 public class BookMark {
     public Book book;
     public int page;
 
+    /**
+     * Constructor for the BookMark class
+     * @param book Book
+     * @param page Page number
+     */
     public BookMark(Book book, int page) {
         this.book = book;
         this.page = page;
     }
 
+    /**
+     * Returns the book of the bookmark
+     * @throws IOException
+     */
     public static void removeBookMark() throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Remove BookMark");
@@ -40,10 +55,18 @@ public class BookMark {
         System.out.println("BookMark "+ bmm.book.Title + " ["+ bmm.page +"] " +"removed successfully");
     }
 
+    /**
+     * Returns a string representation of the bookmark
+     * @return String representation of the bookmark
+     */
     public String toString() {
         return this.book.Title + " || page - " + this.page;
     }
 
+    /**
+     * Adds a new bookmark to the list of bookmarks
+     * @throws IOException
+     */
     public static void addBookMark() throws IOException, IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Add new BookMark");
