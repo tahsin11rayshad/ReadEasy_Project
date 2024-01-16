@@ -17,36 +17,40 @@ public class Main {
                 "7. Exit\n" };
         int option = 0;
         while (option != 7) {
-            System.out.println("\n\n\nSelect an option:");
-            for (String s : options) {
-                System.out.println(s);
+            try{System.out.println("\n\n\nSelect an option:");
+                for (String s : options) {
+                    System.out.println(s);
+                }
+                option = sc.nextInt();
+                switch (option) {
+                    case 1:
+                        Author.addAuthor();
+                        break;
+                    case 2:
+                        Publisher.addPublisher();
+                        break;
+                    case 3:
+                        Book.addBook();
+                        break;
+                    case 4:
+                        BookMark.addBookMark();
+                        break;
+                    case 5:
+                        BookMark.removeBookMark();
+                        break;
+                    case 6:
+                        ReportFactory.getInstance().showReport();
+                        break;
+                    case 7:
+                        System.out.println("Bye!");
+                        break;
+                    default:
+                        System.out.println("Invalid option");
+                        break;
+                }
             }
-            option = sc.nextInt();
-            switch (option) {
-                case 1:
-                    Author.addAuthor();
-                    break;
-                case 2:
-                    Publisher.addPublisher();
-                    break;
-                case 3:
-                    Book.addBook();
-                    break;
-                case 4:
-                    BookMark.addBookMark();
-                    break;
-                case 5:
-                    BookMark.removeBookMark();
-                    break;
-                case 6:
-                    ReportFactory.getInstance().showReport();
-                    break;
-                case 7:
-                    System.out.println("Bye!");
-                    break;
-                default:
-                    System.out.println("Invalid option");
-                    break;
+            catch (Exception e){
+                System.out.println(e.getMessage());
             }
         }
 
