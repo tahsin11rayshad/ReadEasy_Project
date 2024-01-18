@@ -13,7 +13,7 @@ public class allAuthorReport implements iReport{
      * @throws IOException
      */
     public void printReport() throws IOException {
-        System.out.println("All readEasy.Author Report___________________________");
+        System.out.println("All Author Report___________________________");
         int i = 1;
         for (Author a : BookShelf.getInstance().authors) {
             String Line = i + ". " +  a.Name + " (" + a.Email + ")";

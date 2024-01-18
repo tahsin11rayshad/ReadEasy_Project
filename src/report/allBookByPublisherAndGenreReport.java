@@ -30,17 +30,19 @@ public class allBookByPublisherAndGenreReport implements iReport {
             booksByPublisherAndGenre.get(b.Publisher.Name).get(b.Genre).add(b);
         }
 
-        int i = 1;
+
         for (Map.Entry<String, Map<String, List<Book>>> publisherEntry : booksByPublisherAndGenre.entrySet()) {
             System.out.println("Publisher: " + publisherEntry.getKey());
             for (Map.Entry<String, List<Book>> genreEntry : publisherEntry.getValue().entrySet()) {
                 System.out.println("  Genre: " + genreEntry.getKey());
+                int j=1;
                 for (Book b : genreEntry.getValue()) {
-                    String line = i + ". " + b.Title + " (" + b.Author.Name + ")" + " (" + b.ISBN + ")";
+                    String line = j + ". " + b.Title + " (" + b.Author.Name + ")" + " (" + b.ISBN + ")";
                     System.out.println("    " + line);
-                    i++;
+                    j++;
                 }
             }
+            System.out.println("\n");
         }
     }
 

@@ -31,11 +31,14 @@ public class allBookByAuthorReport implements iReport{
         int i = 1;
         for (Map.Entry<String, List<Book>> entry : booksByAuthor.entrySet()) {
             System.out.println("Author: " + entry.getKey());
+            int j = 1;
             for (Book b : entry.getValue()) {
-                String line = i + ". " + b.Title + " (" + b.Publisher.Name + ")" + " (" + b.ISBN + ")" + " (" + b.Genre + ")";
+                String line = j + ". " + b.Title + " (" + b.Publisher.Name + ")" + " (" + b.ISBN + ")" + " (" + b.Genre + ")";
                 System.out.println("  " + line);
                 i++;
+                j++;
             }
+            System.out.println("\n");
         }
     }
 }
