@@ -5,7 +5,7 @@ import java.io.IOException;
 
 /**
  * A class that prints a report of all the books in the bookshelf.
- * @Author Tahsin Islam
+ * @author Tahsin Islam
  */
 public class allBookReport implements iReport{
     /**

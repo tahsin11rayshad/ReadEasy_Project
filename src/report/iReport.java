@@ -4,7 +4,7 @@ import java.io.IOException;
 
 /**
  * A functional interface that prints a report.
- * @Author Tahsin Islam
+ * @author Tahsin Islam
  */
 @FunctionalInterface
 public interface iReport {

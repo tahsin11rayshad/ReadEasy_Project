@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * A class that prints a report of all the books genre in the bookshelf.
- * @Author Tahsin Islam
+ * @author Tahsin Islam
  */
 public class genreReport implements iReport{
 
