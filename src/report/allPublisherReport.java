@@ -14,11 +14,17 @@ public class allPublisherReport implements iReport{
      */
     public void printReport()throws IOException {
         System.out.println("All Publishers Report");
-        int i = 1;
-        for (Publisher p : BookShelf.getInstance().publishers) {
-            String Line = i + ". " + p.Name + " (" + p.Email + ")";
-            System.out.println(Line);
-            i++;
+        System.out.println("\n");
+        try{
+            int i = 1;
+            for (Publisher p : BookShelf.getInstance().publishers) {
+                String Line = i + ". " + p.Name + " (" + p.Email + ")";
+                System.out.println(Line);
+                i++;
+            }
+        }
+        catch (Exception e){
+            System.out.println("No publishers found.");
         }
     }
 }

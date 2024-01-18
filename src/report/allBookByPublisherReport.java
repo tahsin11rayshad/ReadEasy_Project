@@ -20,24 +20,30 @@ public class allBookByPublisherReport implements iReport{
      */
     public void printReport() throws IOException {
         System.out.println("All Books By Publisher Report");
-        Map<String, List<Book>> booksByPublisher = new HashMap<String, List<Book>>();
-        for (Book b : BookShelf.getInstance().books) {
-            if (!booksByPublisher.containsKey(b.Publisher.Name)) {
-                booksByPublisher.put(b.Publisher.Name, new ArrayList<Book>());
+        System.out.println("\n");
+        try{
+            Map<String, List<Book>> booksByPublisher = new HashMap<String, List<Book>>();
+            for (Book b : BookShelf.getInstance().books) {
+                if (!booksByPublisher.containsKey(b.Publisher.Name)) {
+                    booksByPublisher.put(b.Publisher.Name, new ArrayList<Book>());
+                }
+                booksByPublisher.get(b.Publisher.Name).add(b);
             }
-            booksByPublisher.get(b.Publisher.Name).add(b);
+
+
+            for (Map.Entry<String, List<Book>> entry : booksByPublisher.entrySet()) {
+                System.out.println("Publisher: " + entry.getKey());
+                int j=1;
+                for (Book b : entry.getValue()) {
+                    String line = j + ". " + b.Title + " (" + b.Author.Name + ")" + " (" + b.ISBN + ")" + " (" + b.Genre + ")";
+                    System.out.println("  " + line);
+                    j++;
+                }
+                System.out.println("\n");
+            }
         }
-
-
-        for (Map.Entry<String, List<Book>> entry : booksByPublisher.entrySet()) {
-            System.out.println("Publisher: " + entry.getKey());
-            int j=1;
-            for (Book b : entry.getValue()) {
-                String line = j + ". " + b.Title + " (" + b.Author.Name + ")" + " (" + b.ISBN + ")" + " (" + b.Genre + ")";
-                System.out.println("  " + line);
-                j++;
-            }
-            System.out.println("\n");
+        catch (Exception e){
+            System.out.println("No books in the bookshelf.");
         }
     }
 }

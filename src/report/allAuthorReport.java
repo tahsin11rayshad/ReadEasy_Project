@@ -14,11 +14,17 @@ public class allAuthorReport implements iReport{
      */
     public void printReport() throws IOException {
         System.out.println("All Author Report___________________________");
-        int i = 1;
-        for (Author a : BookShelf.getInstance().authors) {
-            String Line = i + ". " +  a.Name + " (" + a.Email + ")";
-            System.out.println(Line);
-            i++;
+        System.out.println("\n");
+        try{
+            int i = 1;
+            for (Author a : BookShelf.getInstance().authors) {
+                String Line = i + ". " +  a.Name + " (" + a.Email + ")";
+                System.out.println(Line);
+                i++;
+            }
+        }
+        catch (Exception e){
+            System.out.println("No Authors found.");
         }
     }
 }

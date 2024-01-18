@@ -19,12 +19,18 @@ public class allBookMarkReport implements iReport{
      */
     public void printReport() throws IOException {
         System.out.println("All BookMarks Report");
-        List<BookMark> bookmarks = BookMarkManager.getInstance().bookMarks;
-        int i = 1;
-        for (BookMark bookmark : bookmarks) {
-            String line = i + ". " + bookmark.book.Title + " by " + bookmark.book.Author.Name + " || page - " + bookmark.page;
-            System.out.println(line);
-            i++;
+        System.out.println("\n");
+        try{
+            List<BookMark> bookmarks = BookMarkManager.getInstance().bookMarks;
+            int i = 1;
+            for (BookMark bookmark : bookmarks) {
+                String line = i + ". " + bookmark.book.Title + " by " + bookmark.book.Author.Name + " || page - " + bookmark.page;
+                System.out.println(line);
+                i++;
+            }
+        }
+        catch (Exception e){
+            System.out.println("No bookmarks found.");
         }
     }
 }
