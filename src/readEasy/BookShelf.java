@@ -127,21 +127,6 @@ public class BookShelf {
      * Saves the books to the file
      * @throws IOException
      */
-    private void saveBooks() throws IOException {
-        checkShalves();
-        Path filePath = Paths.get("C:\\readeasy\\book.txt");
-        List<String> lines = new ArrayList<String>();
-        for (Book book : books) {
-            String line = book.Title + "," + book.Author.Name + "," + book.Publisher.Name + "," + book.ISBN + "," + book.getGenre();
-            lines.add(line);
-        }
-        Files.write(filePath, lines);
-    }
-
-    /**
-     * Saves the authors to the file
-     * @throws IOException
-     */
     private void appendBook(Book book) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\book.txt");

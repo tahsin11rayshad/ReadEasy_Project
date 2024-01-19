@@ -93,7 +93,7 @@ public class ReportFactory {
             case 10:
                 return new report.allBookByPublisherAndGenreReport();
             default:
-                return null;
+                return new report.invalidReport();
         }
     }
 }
