@@ -130,7 +130,7 @@ public class BookShelf {
     private void appendBook(Book book) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\book.txt");
-        String line = book.Title + "," + book.Author.Name + "," + book.Publisher.Name + "," + book.ISBN + "," + book.getGenre() + "\n";
+        String line = "\n"+ book.Title + "," + book.Author.Name + "," + book.Publisher.Name + "," + book.ISBN + "," + book.getGenre();
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
@@ -141,7 +141,7 @@ public class BookShelf {
     private void appendAuthor(Author author) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\auth.txt");
-        String line = author.Name + "," + author.Email + "\n";
+        String line =  "\n"+author.Name + "," + author.Email;
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
@@ -152,7 +152,7 @@ public class BookShelf {
     private void appendPublisher(Publisher publisher) throws IOException {
         checkShalves();
         Path filePath = Paths.get("C:\\readeasy\\pub.txt");
-        String line = publisher.Name + "," + publisher.Address + "," + publisher.Email + "\n";
+        String line = "\n"+publisher.Name + "," + publisher.Address + "," + publisher.Email;
         Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
     }
 
