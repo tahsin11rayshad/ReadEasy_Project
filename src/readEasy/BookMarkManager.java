@@ -129,7 +129,7 @@ public class BookMarkManager {
         Path filePath = Paths.get("C:\\readeasy\\mark.txt");
         Files.write(filePath, new byte[0]);
         for (BookMark bm : bookMarks) {
-            String line = bm.book.Title + "," + bm.page;
+            String line = bm.book.Title + "," + bm.page + "\n";
             Files.write(filePath, line.getBytes(), StandardOpenOption.APPEND);
         }
     }
